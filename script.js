@@ -1,16 +1,104 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".faq-question").forEach((question) => {
-    question.addEventListener("click", () => {
-      const faqItem = question.parentElement;
-      const isActive = faqItem.classList.contains("active");
-
-      document.querySelectorAll(".faq-item").forEach((item) => {
-        item.classList.remove("active");
+  document.querySelectorAll(".faq-category").forEach((category) => {
+    category.addEventListener("click", () => {
+      document.querySelectorAll(".faq-category").forEach((cat) => {
+        cat.classList.remove("active");
+      });
+      
+      category.classList.add("active");
+      
+      document.querySelectorAll(".faq-group").forEach((group) => {
+        group.classList.remove("active");
       });
 
-      if (!isActive) {
-        faqItem.classList.add("active");
+      const targetCategory = category.getAttribute("data-category");
+      const targetGroup = document.querySelector(`.faq-group[data-category="${targetCategory}"]`);
+      if (targetGroup) {
+        targetGroup.classList.add("active");
       }
+    });
+  });
+
+  // FAQ Navigation
+  document.querySelectorAll(".nav-pill").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      // Remove active class from all pills
+      document.querySelectorAll(".nav-pill").forEach((p) => {
+        p.classList.remove("active");
+      });
+      
+      // Add active class to clicked pill
+      pill.classList.add("active");
+      
+      // Hide all FAQ groups
+      document.querySelectorAll(".faq-group").forEach((group) => {
+        group.classList.remove("active");
+      });
+      
+      // Show the target FAQ group
+      const targetCategory = pill.getAttribute("data-category");
+      const targetGroup = document.querySelector(`.faq-group[data-category="${targetCategory}"]`);
+      if (targetGroup) {
+        targetGroup.classList.add("active");
+      }
+    });
+  });
+
+  // FAQ Card Toggle
+  document.querySelectorAll(".question-wrapper").forEach((question) => {
+    question.addEventListener("click", () => {
+      const card = question.closest(".faq-card");
+      if (!card) return;
+      
+      // Close other cards in the same group
+      const parentGroup = card.closest(".faq-group");
+      if (parentGroup) {
+        parentGroup.querySelectorAll(".faq-card").forEach((otherCard) => {
+          if (otherCard !== card) {
+            otherCard.classList.remove("active");
+            // Ensure proper reset of height
+            const otherWrapper = otherCard.querySelector(".answer-wrapper");
+            if (otherWrapper) {
+              otherWrapper.style.maxHeight = "0px";
+              otherWrapper.style.visibility = "hidden";
+            }
+          }
+        });
+      }
+      
+      // Toggle current card
+      card.classList.toggle("active");
+      
+      // Handle answer wrapper height
+      const answerWrapper = card.querySelector(".answer-wrapper");
+      if (answerWrapper) {
+        if (card.classList.contains("active")) {
+          answerWrapper.style.visibility = "visible";
+          // Set maxHeight to a value larger than content
+          answerWrapper.style.maxHeight = answerWrapper.scrollHeight + 100 + "px";
+        } else {
+          answerWrapper.style.maxHeight = "0px";
+          // Delay hiding content until animation completes
+          setTimeout(() => {
+            if (!card.classList.contains("active")) {
+              answerWrapper.style.visibility = "hidden";
+            }
+          }, 400);
+        }
+      }
+    });
+  });
+
+
+
+  // Helpful Buttons
+  document.querySelectorAll(".helpful-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent event bubbling to card
+      
+      const buttons = btn.closest(".helpful-buttons").querySelectorAll(".helpful-btn");
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
     });
   });
 
@@ -43,15 +131,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   const navLinks = document.querySelector(".nav-links");
+  const navList = document.querySelector(".nav-list");
   let isMenuOpen = false;
+
+  function closeMobileMenu() {
+    isMenuOpen = false;
+    navList.classList.remove("active");
+    mobileMenuBtn.classList.remove("active");
+    const bars = mobileMenuBtn.querySelectorAll(".bar");
+    bars[0].style.transform = "none";
+    bars[1].style.opacity = "1";
+    bars[2].style.transform = "none";
+  }
 
   if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener("click", () => {
       isMenuOpen = !isMenuOpen;
-      navLinks.style.display = isMenuOpen ? "flex" : "none";
+      navList.classList.toggle("active");
       mobileMenuBtn.classList.toggle("active");
+      toggleBodyScroll(isMenuOpen);
 
-      // Animate bars
       const bars = mobileMenuBtn.querySelectorAll(".bar");
       if (isMenuOpen) {
         bars[0].style.transform = "rotate(45deg) translate(5px, 5px)";
@@ -70,6 +169,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const diagnosisSection = document.getElementById("diagnosis");
     diagnosisSection.scrollIntoView({ behavior: "smooth" });
   });
+
+  // Function to toggle body scroll
+  function toggleBodyScroll(disable) {
+    document.body.style.overflow = disable ? "hidden" : "";
+  }
 
   const header = document.querySelector(".site-header");
   let lastScroll = 0;
@@ -96,7 +200,22 @@ document.addEventListener("DOMContentLoaded", function () {
         targetElement.scrollIntoView({
           behavior: "smooth",
         });
+        if (window.innerWidth <= 768) {
+          closeMobileMenu();
+        }
       }
     });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (isMenuOpen && !e.target.closest(".nav-list") && !e.target.closest(".mobile-menu-btn")) {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768 && isMenuOpen) {
+      closeMobileMenu();
+    }
   });
 });

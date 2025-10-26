@@ -259,96 +259,287 @@
                     <i class="fas fa-question-circle"></i>
                 </div>
                 <h2 class="section-title">
-                    <span class="title-accent">FAQ</span>
+                    <span class="title-accent">Pertanyaan Umum</span>
                     <div class="title-line"></div>
                 </h2>
+                <p class="section-subtitle">Temukan jawaban untuk pertanyaan-pertanyaan yang sering diajukan tentang GERD</p>
             </div>
 
             <div class="faq-container">
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Apa perbedaan GERD dengan maag biasa?</h3>
-                            <button class="toggle-btn">
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
+                <div class="faq-navigation">
+                    <div class="nav-pill active" data-category="general">
+                        <i class="fas fa-circle-info"></i>
+                        <span>Umum</span>
+                    </div>
+                    <div class="nav-pill" data-category="treatment">
+                        <i class="fas fa-pills"></i>
+                        <span>Pengobatan</span>
+                    </div>
+                    <div class="nav-pill" data-category="lifestyle">
+                        <i class="fas fa-heart-pulse"></i>
+                        <span>Gaya Hidup</span>
+                    </div>
+                </div>
+
+                <div class="faq-content">
+                    <div class="faq-group active" data-category="general">
+                        <div class="faq-card">
+                            <div class="question-wrapper">
+                                <span class="faq-tag">Umum</span>
+                                <h3>Apa perbedaan GERD dengan maag biasa?</h3>
+                                <button class="toggle-btn">
+                                    <i class="fas fa-plus"></i>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="answer-wrapper">
+                                <div class="answer-content">
+                                    <p>GERD adalah kondisi kronis di mana asam lambung naik ke kerongkongan secara berulang,
+                                        sementara maag biasa (gastritis) adalah peradangan pada dinding lambung. GERD memiliki
+                                        gejala khas seperti heartburn dan regurgitasi yang terjadi secara teratur.</p>
+                                </div>
+                                <div class="answer-footer">
+                                    <div class="helpful-text">Apakah informasi ini membantu?</div>
+                                    <div class="helpful-buttons">
+                                        <button class="helpful-btn" data-value="yes">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Ya
+                                        </button>
+                                        <button class="helpful-btn" data-value="no">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            Tidak
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="faq-answer">
-                            <p>GERD adalah kondisi kronis di mana asam lambung naik ke kerongkongan secara berulang,
-                                sementara maag biasa (gastritis) adalah peradangan pada dinding lambung. GERD memiliki
-                                gejala khas seperti heartburn dan regurgitasi yang terjadi secara teratur.</p>
+
+                        <div class="faq-card">
+                            <div class="question-wrapper">
+                                <span class="faq-tag">Penting</span>
+                                <h3>Kapan saya harus ke dokter untuk GERD?</h3>
+                                <button class="toggle-btn">
+                                    <i class="fas fa-plus"></i>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="answer-wrapper">
+                                <div class="answer-content">
+                                    <p>Segera konsultasi ke dokter jika Anda mengalami:</p>
+                                    <ul class="symptom-list">
+                                        <li><i class="fas fa-check"></i>Gejala GERD lebih dari 2 kali seminggu</li>
+                                        <li><i class="fas fa-check"></i>Kesulitan menelan</li>
+                                        <li><i class="fas fa-check"></i>Nyeri dada yang parah</li>
+                                        <li><i class="fas fa-check"></i>Gejala yang mengganggu aktivitas sehari-hari</li>
+                                        <li><i class="fas fa-check"></i>Gejala tidak membaik dengan obat maag biasa</li>
+                                    </ul>
+                                </div>
+                                <div class="answer-footer">
+                                    <div class="helpful-text">Apakah informasi ini membantu?</div>
+                                    <div class="helpful-buttons">
+                                        <button class="helpful-btn" data-value="yes">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Ya
+                                        </button>
+                                        <button class="helpful-btn" data-value="no">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            Tidak
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Kapan saya harus ke dokter untuk GERD?</h3>
-                            <button class="toggle-btn">
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Segera konsultasi ke dokter jika Anda mengalami gejala GERD lebih dari 2 kali seminggu,
-                                kesulitan menelan, nyeri dada yang parah, atau gejala yang mengganggu aktivitas
-                                sehari-hari. Juga jika gejala tidak membaik dengan obat maag biasa.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Apakah GERD bisa sembuh total?</h3>
-                            <button class="toggle-btn">
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
-                        </div>
-                        <div class="faq-answer">
-                            <p>GERD adalah kondisi kronis yang memerlukan penanganan jangka panjang. Meskipun gejala
-                                bisa dikendalikan dengan pengobatan dan perubahan gaya hidup, penyakit ini cenderung
-                                kambuh jika faktor risikonya tidak dikelola dengan baik.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Makanan apa yang harus dihindari penderita GERD?</h3>
-                            <button class="toggle-btn">
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Beberapa makanan yang sebaiknya dihindari: makanan pedas, asam, berlemak, coklat, kopi,
-                                teh, alkohol, dan makanan berminyak. Juga hindari makan dalam porsi besar dan makan 2-3
-                                jam sebelum tidur.</p>
+                    <div class="faq-group" data-category="treatment">
+                        <div class="faq-card">
+                            <div class="question-wrapper">
+                                <span class="faq-tag">Pengobatan</span>
+                                <h3>Apakah GERD bisa sembuh total?</h3>
+                                <button class="toggle-btn">
+                                    <i class="fas fa-plus"></i>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="answer-wrapper">
+                                <div class="answer-content">
+                                    <p>GERD adalah kondisi kronis yang memerlukan penanganan jangka panjang. Meskipun gejala
+                                        bisa dikendalikan dengan pengobatan dan perubahan gaya hidup, penyakit ini cenderung
+                                        kambuh jika faktor risikonya tidak dikelola dengan baik.</p>
+                                    <div class="info-box">
+                                        <i class="fas fa-info-circle"></i>
+                                        <p>Konsisten dalam pengobatan dan perubahan gaya hidup adalah kunci untuk mengendalikan GERD.</p>
+                                    </div>
+                                </div>
+                                <div class="answer-footer">
+                                    <div class="helpful-text">Apakah informasi ini membantu?</div>
+                                    <div class="helpful-buttons">
+                                        <button class="helpful-btn" data-value="yes">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Ya
+                                        </button>
+                                        <button class="helpful-btn" data-value="no">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            Tidak
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Apakah stress dapat memicu GERD?</h3>
-                            <button class="toggle-btn">
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
+                    <div class="faq-group" data-category="lifestyle">
+                        <div class="faq-card">
+                            <div class="question-wrapper">
+                                <span class="faq-tag">Makanan</span>
+                                <h3>Makanan apa yang harus dihindari penderita GERD?</h3>
+                                <button class="toggle-btn">
+                                    <i class="fas fa-plus"></i>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="answer-wrapper">
+                                <div class="answer-content">
+                                    <p>Beberapa jenis makanan yang sebaiknya dihindari:</p>
+                                    <div class="food-grid">
+                                        <div class="food-item">
+                                            <i class="fas fa-pepper-hot"></i>
+                                            <span>Makanan Pedas</span>
+                                        </div>
+                                        <div class="food-item">
+                                            <i class="fas fa-lemon"></i>
+                                            <span>Makanan Asam</span>
+                                        </div>
+                                        <div class="food-item">
+                                            <i class="fas fa-hamburger"></i>
+                                            <span>Makanan Berlemak</span>
+                                        </div>
+                                        <div class="food-item">
+                                            <i class="fas fa-mug-hot"></i>
+                                            <span>Kopi & Teh</span>
+                                        </div>
+                                        <div class="food-item">
+                                            <i class="fas fa-wine-glass-alt"></i>
+                                            <span>Alkohol</span>
+                                        </div>
+                                        <div class="food-item">
+                                            <i class="fas fa-cookie"></i>
+                                            <span>Coklat</span>
+                                        </div>
+                                    </div>
+                                    <div class="tip-box">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <p>Hindari makan dalam porsi besar dan makan 2-3 jam sebelum tidur.</p>
+                                    </div>
+                                </div>
+                                <div class="answer-footer">
+                                    <div class="helpful-text">Apakah informasi ini membantu?</div>
+                                    <div class="helpful-buttons">
+                                        <button class="helpful-btn" data-value="yes">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Ya
+                                        </button>
+                                        <button class="helpful-btn" data-value="no">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            Tidak
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="faq-answer">
-                            <p>Ya, stress dapat memperburuk gejala GERD. Stress dapat meningkatkan produksi asam lambung
-                                dan mengubah pola makan. Manajemen stress yang baik dapat membantu mengurangi frekuensi
-                                dan keparahan gejala GERD.</p>
-                        </div>
-                    </div>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Bagaimana cara tidur yang baik untuk penderita GERD?</h3>
-                            <button class="toggle-btn">
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
+                        <div class="faq-card">
+                            <div class="question-wrapper">
+                                <span class="faq-tag">Gaya Hidup</span>
+                                <h3>Apakah stress dapat memicu GERD?</h3>
+                                <button class="toggle-btn">
+                                    <i class="fas fa-plus"></i>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="answer-wrapper">
+                                <div class="answer-content">
+                                    <p>Ya, stress dapat memperburuk gejala GERD karena:</p>
+                                    <ul class="effect-list">
+                                        <li><i class="fas fa-arrow-right"></i>Meningkatkan produksi asam lambung</li>
+                                        <li><i class="fas fa-arrow-right"></i>Mengubah pola makan</li>
+                                        <li><i class="fas fa-arrow-right"></i>Mempengaruhi kualitas tidur</li>
+                                    </ul>
+                                    <div class="tip-box">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <p>Manajemen stress yang baik dapat membantu mengurangi frekuensi dan keparahan gejala GERD.</p>
+                                    </div>
+                                </div>
+                                <div class="answer-footer">
+                                    <div class="helpful-text">Apakah informasi ini membantu?</div>
+                                    <div class="helpful-buttons">
+                                        <button class="helpful-btn" data-value="yes">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Ya
+                                        </button>
+                                        <button class="helpful-btn" data-value="no">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            Tidak
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="faq-answer">
-                            <p>Tidur dengan kepala lebih tinggi (elevasi 15-20 cm), tidur miring ke kiri, hindari makan
-                                2-3 jam sebelum tidur, dan gunakan bantal yang cukup tinggi. Ini membantu mencegah
-                                refluks asam saat tidur.</p>
+
+                        <div class="faq-card">
+                            <div class="question-wrapper">
+                                <span class="faq-tag">Tips</span>
+                                <h3>Bagaimana cara tidur yang baik untuk penderita GERD?</h3>
+                                <button class="toggle-btn">
+                                    <i class="fas fa-plus"></i>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="answer-wrapper">
+                                <div class="answer-content">
+                                    <div class="sleep-tips">
+                                        <div class="tip-item">
+                                            <i class="fas fa-bed"></i>
+                                            <p>Tidur dengan kepala lebih tinggi (elevasi 15-20 cm)</p>
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-arrows-rotate"></i>
+                                            <p>Tidur miring ke kiri</p>
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-clock"></i>
+                                            <p>Hindari makan 2-3 jam sebelum tidur</p>
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-mattress-pillow"></i>
+                                            <p>Gunakan bantal yang cukup tinggi</p>
+                                        </div>
+                                    </div>
+                                    <div class="note-box">
+                                        <i class="fas fa-sticky-note"></i>
+                                        <p>Posisi tidur yang tepat membantu mencegah refluks asam saat tidur.</p>
+                                    </div>
+                                </div>
+                                <div class="answer-footer">
+                                    <div class="helpful-text">Apakah informasi ini membantu?</div>
+                                    <div class="helpful-buttons">
+                                        <button class="helpful-btn" data-value="yes">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Ya
+                                        </button>
+                                        <button class="helpful-btn" data-value="no">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            Tidak
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="faq-footer">
+                    <p class="help-text">Masih ada pertanyaan? Konsultasikan dengan dokter untuk penanganan yang tepat.</p>
                 </div>
             </div>
         </div>
