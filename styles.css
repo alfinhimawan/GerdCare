@@ -1173,22 +1173,26 @@ h1 {
 
 .about-container {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: start;
+  align-items: center;
   position: relative;
   z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .info-card {
   background: #fff;
   border-radius: 16px;
-  padding: 2rem;
+  padding: 2.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .info-card:hover {
@@ -1228,9 +1232,11 @@ h1 {
 .symptoms-grid {
   background: #fff;
   border-radius: 16px;
-  padding: 2rem;
+  padding: 2.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .symptoms-grid h3 {
@@ -1270,49 +1276,7 @@ h1 {
   color: var(--color-text);
 }
 
-.warning-card {
-  background: #fff8f8;
-  border-radius: 16px;
-  padding: 2rem;
-  display: flex;
-  gap: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.warning-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(231, 76, 60, 0.15);
-}
-
-.warning-card:hover .warning-icon {
-  transform: scale(1.1);
-  background: rgba(231, 76, 60, 0.2);
-}
-
-.warning-icon {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  background: rgba(231, 76, 60, 0.1);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: #e74c3c;
-}
-
-.warning-content h3 {
-  color: #c0392b;
-  margin-bottom: 0.8rem;
-  font-size: 1.25rem;
-}
-
-.warning-content p {
-  color: #7f8c8d;
-  line-height: 1.7;
-}
 
 .visual-content {
   position: relative;
@@ -1391,7 +1355,7 @@ h1 {
 
   .about-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
     padding: 0 2rem;
   }
 
@@ -1404,8 +1368,11 @@ h1 {
     margin: 0 auto;
   }
 
-  .info-card,
-  .warning-card {
+  .visual-content {
+    order: -1;
+  }
+
+  .info-card {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -1448,8 +1415,7 @@ h1 {
     font-size: 1rem;
   }
 
-  .info-card,
-  .warning-card {
+  .info-card {
     padding: 1.5rem;
   }
 
@@ -1495,15 +1461,13 @@ h1 {
     gap: 1rem;
   }
 
-  .info-card,
-  .warning-card {
+  .info-card {
     flex-direction: column;
     text-align: center;
     padding: 1.2rem;
   }
 
-  .card-icon,
-  .warning-icon {
+  .card-icon {
     margin: 0 auto 1rem;
     width: 40px;
     height: 40px;
@@ -1546,8 +1510,7 @@ h1 {
     font-size: 1.5rem;
   }
 
-  .info-card,
-  .warning-card {
+  .info-card {
     padding: 1rem;
   }
 
@@ -2894,14 +2857,62 @@ h2 {
 .site-footer {
     background: var(--color-primary);
     color: var(--color-white);
-    padding: 1.5rem 0;
+    padding: 2rem 0;
     text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
 }
 
 .copyright {
     font-size: 0.9rem;
     font-weight: 500;
     opacity: 0.9;
+}
+
+.designer {
+    font-size: 0.85rem;
+    font-weight: 400;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.designer i {
+    color: #ff7f7f;
+    font-size: 0.8rem;
+    animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Footer Responsive */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 1.75rem 0;
+    }
+    
+    .footer-content {
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 1.5rem 0;
+    }
+    
+    .copyright, .designer {
+        font-size: 0.8rem;
+    }
 }/* Global Responsive Design */
 html {
     font-size: 16px; /* Base font size */
