@@ -24,7 +24,7 @@ nextButton.addEventListener('click', handleNextButton);
 // Load questions from JSON file
 async function loadQuestions() {
     try {
-        const response = await fetch('data/questions.json');
+        const response = await fetch('assets/data/questions.json');
         const data = await response.json();
         questions = data.questions;
         totalQuestionsSpan.textContent = questions.length;
@@ -130,7 +130,7 @@ function calculateResults() {
 // Show results
 async function showResults() {
     const score = calculateResults();
-    const response = await fetch('data/questions.json');
+    const response = await fetch('assets/data/questions.json');
     const data = await response.json();
     const criteria = data.analysis_criteria;
     
