@@ -1,0 +1,152 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Seberapa sering Anda mengalami rasa terbakar di ulu hati?",
+      "options": [
+        {"value": 0, "text": "Tidak Pernah"},
+        {"value": 1, "text": "1-2 kali seminggu"},
+        {"value": 2, "text": "3-4 kali seminggu"},
+        {"value": 3, "text": "Hampir setiap hari"}
+      ],
+      "weight": 3
+    },
+    {
+      "id": 2,
+      "question": "Apakah Anda mengalami rasa asam di mulut (regurgitasi)?",
+      "options": [
+        {"value": 0, "text": "Tidak Pernah"},
+        {"value": 1, "text": "Jarang"},
+        {"value": 2, "text": "Sering"},
+        {"value": 3, "text": "Sangat Sering"}
+      ],
+      "weight": 2
+    },
+    {
+      "id": 3,
+      "question": "Apakah gejala memburuk saat berbaring?",
+      "options": [
+        {"value": 0, "text": "Tidak"},
+        {"value": 1, "text": "Kadang-kadang"},
+        {"value": 2, "text": "Sering"},
+        {"value": 3, "text": "Selalu"}
+      ],
+      "weight": 2
+    },
+    {
+      "id": 4,
+      "question": "Apakah Anda mengalami kesulitan menelan?",
+      "options": [
+        {"value": 0, "text": "Tidak Pernah"},
+        {"value": 1, "text": "Jarang"},
+        {"value": 2, "text": "Sering"},
+        {"value": 3, "text": "Sangat Sering"}
+      ],
+      "weight": 2
+    },
+    {
+      "id": 5,
+      "question": "Apakah Anda sering mengalami mual?",
+      "options": [
+        {"value": 0, "text": "Tidak Pernah"},
+        {"value": 1, "text": "Jarang"},
+        {"value": 2, "text": "Sering"},
+        {"value": 3, "text": "Sangat Sering"}
+      ],
+      "weight": 1
+    },
+    {
+      "id": 6,
+      "question": "Apakah gejala muncul/memburuk setelah makan?",
+      "options": [
+        {"value": 0, "text": "Tidak"},
+        {"value": 1, "text": "Kadang-kadang"},
+        {"value": 2, "text": "Sering"},
+        {"value": 3, "text": "Selalu"}
+      ],
+      "weight": 2
+    },
+    {
+      "id": 7,
+      "question": "Apakah Anda mengalami nyeri dada?",
+      "options": [
+        {"value": 0, "text": "Tidak Pernah"},
+        {"value": 1, "text": "Jarang"},
+        {"value": 2, "text": "Sering"},
+        {"value": 3, "text": "Sangat Sering"}
+      ],
+      "weight": 3
+    },
+    {
+      "id": 8,
+      "question": "Apakah gejala mengganggu tidur Anda?",
+      "options": [
+        {"value": 0, "text": "Tidak"},
+        {"value": 1, "text": "Kadang-kadang"},
+        {"value": 2, "text": "Sering"},
+        {"value": 3, "text": "Sangat Sering"}
+      ],
+      "weight": 2
+    },
+    {
+      "id": 9,
+      "question": "Apakah gejala mempengaruhi nafsu makan Anda?",
+      "options": [
+        {"value": 0, "text": "Tidak"},
+        {"value": 1, "text": "Sedikit"},
+        {"value": 2, "text": "Cukup Besar"},
+        {"value": 3, "text": "Sangat Mempengaruhi"}
+      ],
+      "weight": 1
+    },
+    {
+      "id": 10,
+      "question": "Sudah berapa lama Anda mengalami gejala-gejala ini?",
+      "options": [
+        {"value": 0, "text": "Kurang dari 1 minggu"},
+        {"value": 1, "text": "1-4 minggu"},
+        {"value": 2, "text": "1-6 bulan"},
+        {"value": 3, "text": "Lebih dari 6 bulan"}
+      ],
+      "weight": 2
+    }
+  ],
+  "analysis_criteria": {
+    "mild": {
+      "min_score": 0,
+      "max_score": 10,
+      "title": "Gejala Ringan",
+      "description": "Anda menunjukkan gejala GERD ringan",
+      "recommendations": [
+        "Hindari makanan yang memicu gejala",
+        "Makan dalam porsi kecil tapi sering",
+        "Hindari makan 2-3 jam sebelum tidur",
+        "Pertahankan berat badan ideal"
+      ]
+    },
+    "moderate": {
+      "min_score": 11,
+      "max_score": 20,
+      "title": "Gejala Sedang",
+      "description": "Anda menunjukkan gejala GERD sedang",
+      "recommendations": [
+        "Konsultasikan dengan dokter untuk evaluasi lebih lanjut",
+        "Pertimbangkan penggunaan obat antasida",
+        "Tidur dengan posisi kepala lebih tinggi",
+        "Hindari makanan berlemak dan pedas"
+      ]
+    },
+    "severe": {
+      "min_score": 21,
+      "max_score": 60,
+      "title": "Gejala Berat",
+      "description": "Anda menunjukkan gejala GERD berat",
+      "recommendations": [
+        "Segera konsultasi dengan dokter spesialis",
+        "Lakukan pemeriksaan lebih lanjut",
+        "Ikuti anjuran dokter dengan ketat",
+        "Catat makanan yang memicu gejala"
+      ]
+    }
+  }
+}
