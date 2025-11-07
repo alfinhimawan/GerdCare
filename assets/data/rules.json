@@ -1,0 +1,61 @@
+{
+  "rules": [
+    {
+      "kode": "A001",
+      "gejala": [
+        "nyeri ulu hati",
+        "rasa asam di mulut",
+        "nyeri dada setelah makan"
+      ],
+      "penyakit": "GERD (Gastroesophageal Reflux Disease)",
+      "solusi": "Hindari makanan pedas, berlemak, kopi, dan soda. Makan sedikit tapi sering, jangan langsung berbaring setelah makan.",
+      "saran": "Segera ke dokter bila nyeri dada tidak hilang atau terasa sesak."
+    },
+    {
+      "kode": "A002",
+      "gejala": [
+        "nyeri ulu hati",
+        "sulit menelan",
+        "tenggorokan terasa panas atau kering",
+        "rasa asam di mulut"
+      ],
+      "penyakit": "GERD (Gastroesophageal Reflux Disease)",
+      "solusi": "Hindari alkohol dan rokok, tidur dengan posisi kepala lebih tinggi, jangan makan sebelum tidur.",
+      "saran": "Jika sulit menelan makin parah, periksa ke dokter spesialis pencernaan."
+    },
+    {
+      "kode": "A003", 
+      "gejala": [
+        "perut kembung",
+        "sering bersendawa",
+        "mual dan muntah",
+        "perut terasa begah dan tidak nyaman"
+      ],
+      "penyakit": "Dispepsia (Maag Fungsional)",
+      "solusi": "Kurangi stres, makan teratur, hindari makanan pedas, asam, dan berlemak.",
+      "saran": "Jika gejala lebih dari seminggu, sebaiknya periksa ke dokter."
+    },
+    {
+      "kode": "A004",
+      "gejala": [
+        "perut kembung", 
+        "sering bersendawa",
+        "sering merasa lapar padahal sudah makan"
+      ],
+      "penyakit": "Dispepsia (Maag Fungsional)",
+      "solusi": "Istirahat cukup, makan sedikit tapi sering, hindari minuman bersoda dan pedas.",
+      "saran": "Bila berat badan menurun, lakukan pemeriksaan lanjutan."
+    },
+    {
+      "kode": "A005",
+      "gejala": [
+        "mual dan muntah",
+        "perut terasa penuh setelah makan sedikit",
+        "berat badan menurun"
+      ],
+      "penyakit": "Gastritis Akut",
+      "solusi": "Hindari makanan pedas/asam, istirahat, makan makanan lembut dan mudah dicerna.",
+      "saran": "Segera ke dokter bila disertai muntah darah atau feses hitam."
+    }
+  ]
+}
