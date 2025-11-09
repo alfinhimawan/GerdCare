@@ -4,6 +4,38 @@ let rules = [];
 let selectedSymptoms = new Set();
 
 document.addEventListener('DOMContentLoaded', async () => {
+    // Handle welcome screen transition
+    const welcomeScreen = document.querySelector('.welcome-screen');
+    const startScreen = document.getElementById('startScreen');
+    const startDiagnosisButton = document.querySelector('.start-diagnosis-button');
+
+    if (startDiagnosisButton) {
+        startDiagnosisButton.addEventListener('click', () => {
+            console.log('Start diagnosis button clicked'); // Debug log
+            
+            // Hide welcome screen with animation
+            welcomeScreen.style.opacity = '0';
+            welcomeScreen.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                
+                // Show questionnaire with animation
+                startScreen.style.display = 'block';
+                startScreen.style.opacity = '0';
+                startScreen.style.transform = 'translateY(20px)';
+                
+                // Force reflow
+                startScreen.offsetHeight;
+                
+                // Add animation
+                startScreen.style.opacity = '1';
+                startScreen.style.transform = 'translateY(0)';
+            }, 500);
+        });
+    }
+
+    // Load data and render checklist
     await Promise.all([
         loadSymptoms(),
         loadDiseases(),
