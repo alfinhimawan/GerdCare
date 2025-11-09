@@ -1,0 +1,39 @@
+{
+  "penyakit": [
+    {
+      "id": "A01",
+      "nama": "Tukak Lambung (Ulkus Peptikum)",
+      "deskripsi": "Luka pada lapisan lambung akibat asam lambung berlebih atau infeksi Helicobacter pylori.",
+      "pencegahan": "Hindari obat NSAID, alkohol, dan rokok; makan teratur.",
+      "saran_dokter": "Segera konsultasi ke dokter spesialis penyakit dalam untuk pemeriksaan endoskopi. Hindari obat NSAID, makanan pedas, dan stres. Minum obat pereda asam lambung seperti PPI (omeprazole, lansoprazole) sesuai resep dokter."
+    },
+    {
+      "id": "A02",
+      "nama": "Gastroparesis",
+      "deskripsi": "Kelambatan pengosongan lambung akibat kerusakan saraf vagus, sering pada penderita diabetes.",
+      "pencegahan": "Kontrol gula darah, makan porsi kecil tapi sering.",
+      "saran_dokter": "Lakukan pemeriksaan kadar gula dan gastro-emptying scan. Dokter bisa memberi obat untuk mempercepat gerakan lambung seperti metoclopramide."
+    },
+    {
+      "id": "A03",
+      "nama": "GERD (Gastroesophageal Reflux Disease)",
+      "deskripsi": "Naiknya asam lambung ke kerongkongan karena otot LES melemah.",
+      "pencegahan": "Hindari makanan pedas, kopi, cokelat, dan makan sebelum tidur.",
+      "saran_dokter": "Gunakan bantal tinggi saat tidur, jangan langsung berbaring setelah makan. Dokter dapat memberikan antasida, H2 blocker, atau PPI."
+    },
+    {
+      "id": "A04",
+      "nama": "Gastritis",
+      "deskripsi": "Iritasi atau peradangan pada dinding lambung karena infeksi, stres, atau pola makan buruk.",
+      "pencegahan": "Pola makan sehat, hindari rokok, alkohol, dan stres.",
+      "saran_dokter": "Jika nyeri sering kambuh, dokter bisa melakukan tes H. pylori. Obat yang umum diberikan: antasida atau sucralfate."
+    },
+    {
+      "id": "A05",
+      "nama": "Kanker Lambung",
+      "deskripsi": "Pertumbuhan sel abnormal di lapisan lambung yang bisa menyebabkan perdarahan atau penurunan berat badan drastis.",
+      "pencegahan": "Diet sehat, hindari makanan berpengawet, dan deteksi dini.",
+      "saran_dokter": "Segera ke rumah sakit untuk pemeriksaan lanjutan (endoskopi + biopsi). Penanganan meliputi operasi, kemoterapi, dan diet tinggi protein."
+    }
+  ]
+}

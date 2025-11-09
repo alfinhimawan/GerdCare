@@ -1,0 +1,104 @@
+{
+  "gejala": [
+    {
+      "id": "G01",
+      "nama": "Mual pada perut",
+      "deskripsi": "Rasa tidak nyaman di perut bagian atas yang memicu keinginan untuk muntah."
+    },
+    {
+      "id": "G02",
+      "nama": "Nyeri di ulu hati",
+      "deskripsi": "Sensasi panas atau nyeri di perut bagian tengah atas akibat iritasi lambung."
+    },
+    {
+      "id": "G03",
+      "nama": "Perut kembung",
+      "deskripsi": "Terasa penuh atau bergas karena produksi asam berlebih."
+    },
+    {
+      "id": "G04",
+      "nama": "Sendawa berlebih",
+      "deskripsi": "Udara keluar dari lambung ke mulut akibat gas berlebih."
+    },
+    {
+      "id": "G05",
+      "nama": "Sulit tidur",
+      "deskripsi": "Susah tidur karena nyeri perut atau rasa panas di dada."
+    },
+    {
+      "id": "G06",
+      "nama": "Anemia",
+      "deskripsi": "Kekurangan darah akibat perdarahan lambung kronis."
+    },
+    {
+      "id": "G07",
+      "nama": "BAB berwarna hitam",
+      "deskripsi": "Tanda adanya perdarahan di lambung atau usus atas."
+    },
+    {
+      "id": "G08",
+      "nama": "Sering cegukan",
+      "deskripsi": "Gangguan saraf akibat iritasi lambung."
+    },
+    {
+      "id": "G09",
+      "nama": "Sakit tenggorokan",
+      "deskripsi": "Iritasi akibat naiknya asam lambung ke kerongkongan."
+    },
+    {
+      "id": "G10",
+      "nama": "Mudah merasa kenyang",
+      "deskripsi": "Cepat kenyang meski makan sedikit."
+    },
+    {
+      "id": "G11",
+      "nama": "Kadar gula darah tidak terkontrol",
+      "deskripsi": "Kondisi umum pada penderita diabetes yang memengaruhi sistem pencernaan."
+    },
+    {
+      "id": "G12",
+      "nama": "Asam dan pahit di mulut",
+      "deskripsi": "Efek refluks asam lambung ke mulut."
+    },
+    {
+      "id": "G13",
+      "nama": "Muntah darah",
+      "deskripsi": "Tanda perdarahan serius pada lambung."
+    },
+    {
+      "id": "G14",
+      "nama": "BAB berdarah",
+      "deskripsi": "Indikasi perdarahan aktif pada saluran pencernaan."
+    },
+    {
+      "id": "G15",
+      "nama": "Penurunan berat badan",
+      "deskripsi": "Penurunan signifikan akibat gangguan pencernaan."
+    },
+    {
+      "id": "G16",
+      "nama": "Nafsu makan menurun",
+      "deskripsi": "Hilangnya minat makan akibat peradangan lambung."
+    },
+    {
+      "id": "G17",
+      "nama": "Perut terasa terbakar",
+      "deskripsi": "Sensasi panas di perut dan dada."
+    },
+    {
+      "id": "G18",
+      "nama": "Sering bersendawa asam",
+      "deskripsi": "Rasa asam saat sendawa, indikasi GERD."
+    },
+    {
+      "id": "G19",
+      "nama": "Nyeri setelah makan",
+      "deskripsi": "Timbul segera setelah makan karena peningkatan asam lambung."
+    },
+    {
+      "id": "G20",
+      "nama": "Perut terasa penuh setelah makan kecil",
+      "deskripsi": "Pengosongan lambung lambat akibat gangguan saraf vagus."
+    }
+  ]
+}

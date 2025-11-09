@@ -1,202 +1,177 @@
-// Variabel untuk menyimpan data
-let rules = [];
 let symptoms = [];
-let currentSymptomIndex = 0;
+let diseases = [];
+let rules = [];
 let selectedSymptoms = new Set();
 
-// Element references
-const startScreen = document.getElementById('startScreen');
-const questionnaire = document.getElementById('questionnaire');
-const resultScreen = document.getElementById('resultScreen');
-const questionText = document.getElementById('questionText');
-const optionsContainer = document.getElementById('optionsContainer');
-const prevButton = document.getElementById('prevButton');
-const nextButton = document.getElementById('nextButton');
-const progressBar = document.querySelector('.progress-bar');
-const currentQuestionSpan = document.querySelector('.current');
-const totalQuestionsSpan = document.querySelector('.total');
+document.addEventListener('DOMContentLoaded', async () => {
+    await Promise.all([
+        loadSymptoms(),
+        loadDiseases(),
+        loadRules()
+    ]);
+    renderSymptomsChecklist();
+});
 
-// Event Listeners
-document.getElementById('startButton').addEventListener('click', startQuestionnaire);
-document.getElementById('restartButton').addEventListener('click', restartQuestionnaire);
-prevButton.addEventListener('click', showPreviousQuestion);
-nextButton.addEventListener('click', handleNextButton);
+async function loadSymptoms() {
+    try {
+        const response = await fetch('assets/data/symptoms.json');
+        const data = await response.json();
+        symptoms = data.gejala;
+    } catch (error) {
+        console.error('Error loading symptoms:', error);
+    }
+}
 
-// Load rules and generate symptoms list from JSON file
-async function loadRulesAndSymptoms() {
+async function loadDiseases() {
+    try {
+        const response = await fetch('assets/data/diseases.json');
+        const data = await response.json();
+        diseases = data.penyakit;
+    } catch (error) {
+        console.error('Error loading diseases:', error);
+    }
+}
+
+async function loadRules() {
     try {
         const response = await fetch('assets/data/rules.json');
         const data = await response.json();
         rules = data.rules;
-        
-        // Extract unique symptoms from rules
-        const symptomSet = new Set();
-        rules.forEach(rule => {
-            rule.gejala.forEach(gejala => symptomSet.add(gejala));
-        });
-        symptoms = Array.from(symptomSet);
-        totalQuestionsSpan.textContent = symptoms.length;
     } catch (error) {
         console.error('Error loading rules:', error);
     }
 }
 
-// Initialize when document loads
-document.addEventListener('DOMContentLoaded', loadRulesAndSymptoms);
-
-// Start questionnaire
-function startQuestionnaire() {
-    startScreen.style.display = 'none';
-    questionnaire.style.display = 'block';
-    selectedSymptoms = new Set(); // Reset selected symptoms
-    currentSymptomIndex = 0;
-    showQuestion(0);
+function renderSymptomsChecklist() {
+    const symptomsChecklist = document.getElementById('symptomsChecklist');
+    symptomsChecklist.innerHTML = '';
     
-    // Reset button states
-    const buttons = document.querySelectorAll('.option-button');
-    buttons.forEach(button => button.classList.remove('selected'));
-    
-    // Reset navigation
-    nextButton.disabled = true;
-}
-
-// Show symptom question
-function showQuestion(index) {
-    const symptom = symptoms[index];
-    questionText.textContent = `Apakah Anda mengalami gejala: ${symptom}?`;
-    optionsContainer.innerHTML = '';
-
-    // Create Yes/No buttons
-    const options = [
-        { text: 'Ya', value: true },
-        { text: 'Tidak', value: false }
-    ];
-
-    options.forEach(option => {
-        const button = document.createElement('button');
-        button.className = 'option-button';
-        button.innerHTML = option.text;
-        button.addEventListener('click', () => selectOption(symptom, option.value));
-        optionsContainer.appendChild(button);
+    symptoms.forEach(symptom => {
+        const symptomItem = document.createElement('div');
+        symptomItem.className = 'symptom-item';
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = symptom.id;
+        checkbox.className = 'symptom-checkbox';
+        checkbox.addEventListener('change', () => toggleSymptom(symptom.id));
+        
+        const label = document.createElement('label');
+        label.htmlFor = symptom.id;
+        label.className = 'symptom-label';
+        label.textContent = symptom.nama;
+        
+        label.title = symptom.deskripsi;
+        
+        symptomItem.appendChild(checkbox);
+        symptomItem.appendChild(label);
+        symptomsChecklist.appendChild(symptomItem);
     });
-
-    updateNavigation();
-    updateProgress();
+    
+    updateDiagnoseButton();
 }
 
-// Select option for symptom
-function selectOption(symptom, value) {
-    const buttons = optionsContainer.querySelectorAll('.option-button');
-    buttons.forEach(button => button.classList.remove('selected'));
-    
-    if (value) {
-        selectedSymptoms.add(symptom);
-        buttons[0].classList.add('selected'); // Ya button
+function toggleSymptom(symptomId) {
+    if (selectedSymptoms.has(symptomId)) {
+        selectedSymptoms.delete(symptomId);
     } else {
-        selectedSymptoms.delete(symptom);
-        buttons[1].classList.add('selected'); // Tidak button
+        selectedSymptoms.add(symptomId);
     }
-    
-    updateNavigation();
-    
-    // Save to localStorage
-    localStorage.setItem('gerdcare_symptoms', JSON.stringify(Array.from(selectedSymptoms)));
+    updateDiagnoseButton();
+    updateSelectedCount();
 }
 
-// Navigation functions
-function showPreviousQuestion() {
-    if (currentSymptomIndex > 0) {
-        currentSymptomIndex--;
-        showQuestion(currentSymptomIndex);
+function updateSelectedCount() {
+    const selectedCount = document.getElementById('selectedCount');
+    if (selectedCount) {
+        selectedCount.textContent = selectedSymptoms.size;
     }
 }
 
-function handleNextButton() {
-    if (currentSymptomIndex === symptoms.length - 1) {
-        showResults();
-    } else {
-        currentSymptomIndex++;
-        showQuestion(currentSymptomIndex);
-    }
+function updateDiagnoseButton() {
+    const diagnoseButton = document.getElementById('diagnoseButton');
+    diagnoseButton.disabled = selectedSymptoms.size === 0;
 }
 
-// Update navigation buttons
-function updateNavigation() {
-    prevButton.disabled = currentSymptomIndex === 0;
+function forwardChaining(selectedSymptoms) {
+    let possibleDiagnoses = [];
     
-    // Cek apakah ada tombol yang dipilih
-    const selectedButton = document.querySelector('.option-button.selected');
-    const hasAnswer = selectedButton !== null;
+    const sortedRules = [...rules].sort((a, b) => a.priority - b.priority);
     
-    if (currentSymptomIndex === symptoms.length - 1) {
-        nextButton.textContent = 'Lihat Hasil';
-    } else {
-        nextButton.innerHTML = 'Selanjutnya <i class="fas fa-arrow-right"></i>';
-    }
-    nextButton.disabled = !hasAnswer;
-}
-
-// Update progress
-function updateProgress() {
-    const progress = ((currentSymptomIndex + 1) / symptoms.length) * 100;
-    progressBar.style.width = `${progress}%`;
-    currentQuestionSpan.textContent = currentSymptomIndex + 1;
-}
-
-// Find matching rule using Forward Chaining
-function findMatchingRule() {
-    const userSymptoms = Array.from(selectedSymptoms);
-    
-    // Sort rules by number of symptoms (most specific first)
-    const sortedRules = [...rules].sort((a, b) => b.gejala.length - a.gejala.length);
-    
-    // Find first rule where ALL rule symptoms are in user symptoms
     for (let rule of sortedRules) {
-        const isMatch = rule.gejala.every(symptom => 
-            userSymptoms.includes(symptom));
-        if (isMatch) return rule;
+        const isMatch = rule.antecedent.every(symptom => 
+            selectedSymptoms.has(symptom));
+        
+        if (isMatch) {
+            const disease = diseases.find(d => d.id === rule.output);
+            
+            if (disease) {
+                possibleDiagnoses.push({
+                    disease: disease,
+                    rule: rule
+                });
+            }
+        }
     }
-    return null;
+    
+    return possibleDiagnoses;
 }
 
-// Show results using Forward Chaining
-function showResults() {
-    const matchingRule = findMatchingRule();
+document.getElementById('diagnoseButton').addEventListener('click', () => {
+    const diagnoses = forwardChaining(selectedSymptoms);
+    showResults(diagnoses);
+});
 
-    questionnaire.style.display = 'none';
-    resultScreen.style.display = 'block';
-    
+function showResults(diagnoses) {
+    const startScreen = document.getElementById('startScreen');
+    const resultScreen = document.getElementById('resultScreen');
     const resultTitle = document.getElementById('resultTitle');
     const resultDescription = document.getElementById('resultDescription');
     const recommendationsDiv = document.getElementById('recommendations');
+    
+    startScreen.style.display = 'none';
+    resultScreen.style.display = 'block';
     recommendationsDiv.innerHTML = '';
-
-    if (matchingRule) {
-        // Show diagnosis result
-        resultTitle.textContent = matchingRule.penyakit;
-        resultDescription.textContent = matchingRule.solusi;
+    
+    if (diagnoses.length > 0) {
+        const diagnosis = diagnoses[0];
         
-        // Add recommendations
+        resultTitle.textContent = diagnosis.disease.nama;
+        resultDescription.textContent = diagnosis.disease.deskripsi;
+        
         const recommendations = [
-            matchingRule.saran,
-            'Jaga pola makan dan gaya hidup sehat',
-            'Konsultasikan dengan dokter jika gejala memberat'
+            {
+                icon: 'fa-exclamation-circle',
+                text: diagnosis.rule.keterangan
+            },
+            {
+                icon: 'fa-list-check',
+                text: diagnosis.rule.saran
+            },
+            {
+                icon: 'fa-user-doctor',
+                text: diagnosis.disease.saran_dokter
+            },
+            {
+                icon: 'fa-shield-heart',
+                text: diagnosis.disease.pencegahan
+            }
         ];
         
         recommendations.forEach(rec => {
             const recItem = document.createElement('div');
             recItem.className = 'recommendation-item';
             recItem.innerHTML = `
-                <i class="fas fa-check-circle"></i>
-                <span>${rec}</span>
+                <i class="fas ${rec.icon}"></i>
+                <span>${rec.text}</span>
             `;
             recommendationsDiv.appendChild(recItem);
         });
+        
     } else {
-        // No matching rule found
         resultTitle.textContent = 'Tidak Dapat Menentukan Diagnosis';
-        resultDescription.textContent = 'Berdasarkan gejala yang Anda pilih, ' +
-            'sistem tidak dapat menentukan diagnosis yang pasti. ' +
+        resultDescription.textContent = 
+            'Berdasarkan gejala yang Anda pilih, sistem tidak dapat menentukan diagnosis yang pasti. ' +
             'Silakan konsultasikan dengan dokter untuk pemeriksaan lebih lanjut.';
             
         const recItem = document.createElement('div');
@@ -207,27 +182,19 @@ function showResults() {
         `;
         recommendationsDiv.appendChild(recItem);
     }
-
-    // Save results to localStorage
-    localStorage.setItem('gerdcare_result', JSON.stringify({
-        selectedSymptoms: Array.from(selectedSymptoms),
-        diagnosis: matchingRule,
-        timestamp: new Date().toISOString()
-    }));
 }
 
-// Restart questionnaire
-function restartQuestionnaire() {
-    currentSymptomIndex = 0;
-    selectedSymptoms = new Set(); // Create new empty set
-    localStorage.removeItem('gerdcare_symptoms');
-    localStorage.removeItem('gerdcare_result');
+document.getElementById('restartButton').addEventListener('click', () => {
+    selectedSymptoms.clear();
+    const resultScreen = document.getElementById('resultScreen');
+    const startScreen = document.getElementById('startScreen');
+    
     resultScreen.style.display = 'none';
     startScreen.style.display = 'block';
-    progressBar.style.width = '0%';
-    currentQuestionSpan.textContent = '0';
     
-    // Reset all button selections
-    const buttons = document.querySelectorAll('.option-button');
-    buttons.forEach(button => button.classList.remove('selected'));
-}
+    const checkboxes = document.querySelectorAll('.symptom-checkbox');
+    checkboxes.forEach(checkbox => checkbox.checked = false);
+    
+    updateSelectedCount();
+    updateDiagnoseButton();
+});

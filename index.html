@@ -200,41 +200,19 @@
                 </div>
 
                 <div class="diagnosis-form-container">
-                    <div class="form-header">
-                        <div class="progress-indicator">
-                            <div class="progress-bar" style="width: 0%"></div>
-                        </div>
-                        <div class="question-counter">
-                            <span class="current">0</span>/<span class="total">10</span> Pertanyaan
-                        </div>
-                    </div>
                     <div class="diagnosis-form">
                         <div class="start-screen" id="startScreen">
                             <div class="start-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <h3>Ceklis Gejala Yang Anda Alami</h3>
+                            <p>Pilih satu atau lebih gejala yang sesuai dengan kondisi Anda</p>
+                            <div class="symptoms-checklist" id="symptomsChecklist">
+                            </div>
+                            <button class="diagnose-button" id="diagnoseButton">
                                 <i class="fas fa-stethoscope"></i>
-                            </div>
-                            <h3>Siap Untuk Memulai?</h3>
-                            <p>Diagnosa ini akan memakan waktu sekitar 3-5 menit</p>
-                            <button class="start-button" id="startButton">
-                                <span>Mulai Diagnosa</span>
-                                <i class="fas fa-arrow-right"></i>
+                                <span>Diagnosa</span>
                             </button>
-                        </div>
-                        <div class="questionnaire" id="questionnaire" style="display: none;">
-                            <div class="question-content">
-                                <h3 id="questionText"></h3>
-                                <div class="options-container" id="optionsContainer"></div>
-                            </div>
-                            <div class="navigation-buttons">
-                                <button class="nav-button prev-button" id="prevButton" disabled>
-                                    <i class="fas fa-arrow-left"></i>
-                                    Sebelumnya
-                                </button>
-                                <button class="nav-button next-button" id="nextButton">
-                                    Selanjutnya
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
                         </div>
                         <div class="result-screen" id="resultScreen" style="display: none;">
                             <div class="result-icon">

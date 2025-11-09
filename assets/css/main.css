@@ -2913,9 +2913,10 @@ h2 {
     .copyright, .designer {
         font-size: 0.8rem;
     }
-}/* Global Responsive Design */
+}
+
 html {
-    font-size: 16px; /* Base font size */
+    font-size: 16px;
 }
 
 /* Large Desktop */
@@ -2960,14 +2961,12 @@ html {
         font-size: 2rem;
     }
 
-    /* Grid adjustments */
     .diagnosis-cards,
     .symptom-items {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
 
-    /* Card and image scaling */
     .image-wrapper, 
     .diagnosis-form-container,
     .faq-container {
@@ -2986,7 +2985,6 @@ html {
         padding: 0 1.25rem;
     }
 
-    /* Stack layout adjustments */
     .hero-section {
         flex-direction: column;
         text-align: center;
@@ -3002,7 +3000,6 @@ html {
         flex-direction: column;
     }
 
-    /* Navigation adjustments */
     .nav-list {
         gap: 1rem;
     }
@@ -3011,12 +3008,10 @@ html {
         display: none;
     }
 
-    /* Section spacing */
     .section-header {
         margin-bottom: 2.5rem;
     }
 
-    /* Card and grid adjustments */
     .diagnosis-cards,
     .symptom-items {
         grid-template-columns: 1fr;
@@ -3028,7 +3023,6 @@ html {
         padding: 1.5rem;
     }
 
-    /* Text scaling */
     .section-title {
         font-size: 2.2rem;
     }
@@ -3052,20 +3046,17 @@ html {
         font-size: 1.1rem;
     }
 
-    /* Button full width */
     .cta-button {
         width: 100%;
         justify-content: center;
     }
 
-    /* Adjust card padding */
     .info-card, 
     .warning-card,
     .diagnosis-card {
         padding: 1.25rem;
     }
 
-    /* Stack elements */
     .feature {
         flex: 0 0 100%;
     }
@@ -3087,14 +3078,12 @@ html {
         padding: 0 0.875rem;
     }
 
-    /* Minimal padding for cards */
     .info-card, 
     .warning-card,
     .diagnosis-card {
         padding: 1rem;
     }
 
-    /* Smaller icons */
     .card-icon,
     .warning-icon {
         width: 36px;
@@ -3102,7 +3091,6 @@ html {
         font-size: 1.1rem;
     }
 
-    /* Adjust text sizes */
     .hero-title {
         font-size: 1.5rem;
     }

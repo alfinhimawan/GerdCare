@@ -1,61 +1,84 @@
 {
   "rules": [
     {
-      "kode": "A001",
-      "gejala": [
-        "nyeri ulu hati",
-        "rasa asam di mulut",
-        "nyeri dada setelah makan"
-      ],
-      "penyakit": "GERD (Gastroesophageal Reflux Disease)",
-      "solusi": "Hindari makanan pedas, berlemak, kopi, dan soda. Makan sedikit tapi sering, jangan langsung berbaring setelah makan.",
-      "saran": "Segera ke dokter bila nyeri dada tidak hilang atau terasa sesak."
+      "id_rule": "Z1",
+      "antecedent": ["G01","G02","G03","G04"],
+      "output": "A01",
+      "keterangan": "Diagnosis: Kemungkinan Tukak Lambung (Ulkus Peptikum).",
+      "saran": "Segera konsultasi ke dokter spesialis penyakit dalam untuk pemeriksaan endoskopi. Hindari NSAID dan makanan pedas.",
+      "priority": 1
     },
     {
-      "kode": "A002",
-      "gejala": [
-        "nyeri ulu hati",
-        "sulit menelan",
-        "tenggorokan terasa panas atau kering",
-        "rasa asam di mulut"
-      ],
-      "penyakit": "GERD (Gastroesophageal Reflux Disease)",
-      "solusi": "Hindari alkohol dan rokok, tidur dengan posisi kepala lebih tinggi, jangan makan sebelum tidur.",
-      "saran": "Jika sulit menelan makin parah, periksa ke dokter spesialis pencernaan."
+      "id_rule": "Z2",
+      "antecedent": ["G01","G02","G03","G10","G15"],
+      "output": "A02",
+      "keterangan": "Kemungkinan Gastroparesis.",
+      "saran": "Kontrol gula darah dan konsumsi makanan lunak dalam porsi kecil tapi sering.",
+      "priority": 1
     },
     {
-      "kode": "A003", 
-      "gejala": [
-        "perut kembung",
-        "sering bersendawa",
-        "mual dan muntah",
-        "perut terasa begah dan tidak nyaman"
-      ],
-      "penyakit": "Dispepsia (Maag Fungsional)",
-      "solusi": "Kurangi stres, makan teratur, hindari makanan pedas, asam, dan berlemak.",
-      "saran": "Jika gejala lebih dari seminggu, sebaiknya periksa ke dokter."
+      "id_rule": "Z3",
+      "antecedent": ["G01","G03","G05","G09","G12"],
+      "output": "A03",
+      "keterangan": "Menunjukkan gejala GERD.",
+      "saran": "Hindari berbaring setelah makan, kurangi kopi dan cokelat.",
+      "priority": 1
     },
     {
-      "kode": "A004",
-      "gejala": [
-        "perut kembung", 
-        "sering bersendawa",
-        "sering merasa lapar padahal sudah makan"
-      ],
-      "penyakit": "Dispepsia (Maag Fungsional)",
-      "solusi": "Istirahat cukup, makan sedikit tapi sering, hindari minuman bersoda dan pedas.",
-      "saran": "Bila berat badan menurun, lakukan pemeriksaan lanjutan."
+      "id_rule": "Z4",
+      "antecedent": ["G01","G02","G07","G08"],
+      "output": "A04",
+      "keterangan": "Menunjukkan Gastritis.",
+      "saran": "Hindari berbaring setelah makan, kurangi kopi dan cokelat.",
+      "priority": 1
     },
     {
-      "kode": "A005",
-      "gejala": [
-        "mual dan muntah",
-        "perut terasa penuh setelah makan sedikit",
-        "berat badan menurun"
-      ],
-      "penyakit": "Gastritis Akut",
-      "solusi": "Hindari makanan pedas/asam, istirahat, makan makanan lembut dan mudah dicerna.",
-      "saran": "Segera ke dokter bila disertai muntah darah atau feses hitam."
+      "id_rule": "Z5",
+      "antecedent": ["G02","G03","G06","G13","G14","G15"],
+      "output": "A05",
+      "keterangan": "Gejala mengarah ke Kanker Lambung.",
+      "saran": "Segera ke rumah sakit untuk pemeriksaan lanjutan (endoskopi + biopsi).",
+      "priority": 1
+    },
+    {
+      "id_rule": "Z6",
+      "antecedent": ["G01","G16","G19"],
+      "output": "A04",
+      "keterangan": "Gastritis ringan.",
+      "saran": "Hindari makan tidak teratur dan konsumsi obat lambung sesuai anjuran dokter.",
+      "priority": 2
+    },
+    {
+      "id_rule": "Z7",
+      "antecedent": ["G17","G18","G09"],
+      "output": "A03",
+      "keterangan": "GERD kronis.",
+      "saran": "Hindari makan sebelum tidur, kurangi berat badan bila perlu.",
+      "priority": 2
+    },
+    {
+      "id_rule": "Z8",
+      "antecedent": ["G10","G20","G11"],
+      "output": "A02",
+      "keterangan": "Gastroparesis diabetik.",
+      "saran": "Jaga gula darah dan konsultasikan terapi diet khusus.",
+      "priority": 2
+    },
+    {
+      "id_rule": "Z9",
+      "antecedent": ["G03","G04","G17"],
+      "output": "A01",
+      "keterangan": "Tukak Lambung aktif.",
+      "saran": "Hindari makanan berlemak, asam, pedas, dan minuman bersoda.",
+      "priority": 2
+    },
+    {
+      "id_rule": "Z10",
+      "antecedent": ["G06","G07","G13","G15"],
+      "output": "A05",
+      "keterangan": "Indikasi kuat Kanker Lambung stadium lanjut.",
+      "saran": "Segera lakukan pemeriksaan imaging (CT Scan/Endoskopi).",
+      "priority": 1
     }
   ]
-}
+} 
